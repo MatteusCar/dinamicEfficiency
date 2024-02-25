@@ -33,34 +33,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := systick_stm32f411re_CMSIS_DSP
+BUILD_ARTIFACT_NAME := stm32f411re_DSP_CMSIS_Std_Deviation
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-systick_stm32f411re_CMSIS_DSP.elf \
+stm32f411re_DSP_CMSIS_Std_Deviation.elf \
 
 MAP_FILES += \
-systick_stm32f411re_CMSIS_DSP.map \
+stm32f411re_DSP_CMSIS_Std_Deviation.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-systick_stm32f411re_CMSIS_DSP.list \
+stm32f411re_DSP_CMSIS_Std_Deviation.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: systick_stm32f411re_CMSIS_DSP.elf secondary-outputs
+main-build: stm32f411re_DSP_CMSIS_Std_Deviation.elf secondary-outputs
 
 # Tool invocations
-systick_stm32f411re_CMSIS_DSP.elf systick_stm32f411re_CMSIS_DSP.map: $(OBJS) $(USER_OBJS) C:\Users\matte\Downloads\STM32F4RE_DSP_Projects\systick_stm32f411re_CMSIS_DSP\STM32F411RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "systick_stm32f411re_CMSIS_DSP.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\matte\Downloads\STM32F4RE_DSP_Projects\systick_stm32f411re_CMSIS_DSP\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="systick_stm32f411re_CMSIS_DSP.map" -Wl,--gc-sections -static -L"C:\Users\matte\Downloads\STM32F4RE_DSP_Projects\systick_stm32f411re_CMSIS_DSP\chip_files\CMSIS\Lib\GCC" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+stm32f411re_DSP_CMSIS_Std_Deviation.elf stm32f411re_DSP_CMSIS_Std_Deviation.map: $(OBJS) $(USER_OBJS) C:\Users\matte\Downloads\STM32F4RE_DSP_Projects\stm32f411re_DSP_CMSIS_Std_Deviation\STM32F411RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "stm32f411re_DSP_CMSIS_Std_Deviation.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\matte\Downloads\STM32F4RE_DSP_Projects\stm32f411re_DSP_CMSIS_Std_Deviation\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f411re_DSP_CMSIS_Std_Deviation.map" -Wl,--gc-sections -static -L"C:\Users\matte\Downloads\STM32F4RE_DSP_Projects\stm32f411re_DSP_CMSIS_Std_Deviation\chip_files\CMSIS\Lib\GCC" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -69,14 +69,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-systick_stm32f411re_CMSIS_DSP.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "systick_stm32f411re_CMSIS_DSP.list"
+stm32f411re_DSP_CMSIS_Std_Deviation.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "stm32f411re_DSP_CMSIS_Std_Deviation.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) default.size.stdout systick_stm32f411re_CMSIS_DSP.elf systick_stm32f411re_CMSIS_DSP.list systick_stm32f411re_CMSIS_DSP.map
+	-$(RM) default.size.stdout stm32f411re_DSP_CMSIS_Std_Deviation.elf stm32f411re_DSP_CMSIS_Std_Deviation.list stm32f411re_DSP_CMSIS_Std_Deviation.map
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
